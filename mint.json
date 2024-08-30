@@ -1,9 +1,9 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Hyrd Documentations",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-dde20361-71f8-4641-a1b1-bd1b93613fee",
+    "light": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-dde20361-71f8-4641-a1b1-bd1b93613fee"
   },
   "favicon": "/favicon.svg",
   "colors": {
