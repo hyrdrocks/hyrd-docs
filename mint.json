@@ -70,10 +70,10 @@
       ]
     },
     {
-      "group": "Ana Endpoints",
+      "group": "Ana",
       "pages": [
         "api-reference/ana/predict/ping-pong",
-        "api-reference/ana/predict/topic"
+        "api-reference/ana/predict/get-topic-list"
       ]
     }
   ],
