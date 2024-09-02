@@ -73,7 +73,7 @@
       "group": "Ana Endpoints",
       "pages": [
         "api-reference/ana/predict/ping-pong",
-        "api-reference/ana/predict/get-topic-list"
+        "api-reference/ana/predict/topic"
       ]
     }
   ],
