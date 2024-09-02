@@ -72,8 +72,23 @@
     {
       "group": "Ana",
       "pages": [
-        "api-reference/ana/predict/ping-pong",
-        "api-reference/ana/predict/get-topic-list"
+        "api-reference/ana/ping-pong",
+        "api-reference/ana/get-topic-list"
+      ]
+    },
+    {
+      "group": "maya",
+      "pages": [
+        "api-reference/maya/get-talent-assistant",
+        "api-reference/maya/chat-stream",
+        "api-reference/maya/health",
+        "api-reference/maya/get-instruction",
+        "api-reference/maya/company-chat",
+        "api-reference/maya/update-actual-message-from-recom-msg",
+        "api-reference/maya/get-introduction",
+        "api-reference/maya/get-introduction-v2",
+        "api-reference/maya/chat-internal-for-q-service",
+        "api-reference/maya/chat-stream-v2"
       ]
     }
   ],
