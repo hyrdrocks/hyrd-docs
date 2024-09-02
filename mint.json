@@ -7,7 +7,7 @@
   },
   "favicon": "/images/main-logo.png",
   "colors": {
-    "primary": "#0D9373",
+    "primary": "#0071E3",
     "light": "#07C983",
     "dark": "#0D9373",
     "anchors": {
@@ -70,11 +70,10 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Ana Endpoints",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/ana/predict/ping-pong",
+        "api-reference/ana/predict/get-topic-list"
       ]
     }
   ],
