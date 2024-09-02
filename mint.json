@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Hyrd Documentations",
+  "name": "Hyrd",
   "logo": {
     "dark": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-dde20361-71f8-4641-a1b1-bd1b93613fee",
     "light": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-dde20361-71f8-4641-a1b1-bd1b93613fee"
@@ -44,8 +44,7 @@
     }
   ],
   "versions": [
-    "v1",
-    "v2"
+    "v1"
   ],
   "navigation": [
     {
