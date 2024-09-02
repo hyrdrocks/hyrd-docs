@@ -43,6 +43,10 @@
       "url": "https://mintlify.com/blog"
     }
   ],
+  "versions": [
+    "v1",
+    "v2"
+  ],
   "navigation": [
     {
       "group": "Get Started",
