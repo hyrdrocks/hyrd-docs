@@ -5,7 +5,7 @@
     "dark": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-dde20361-71f8-4641-a1b1-bd1b93613fee",
     "light": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-dde20361-71f8-4641-a1b1-bd1b93613fee"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/main-logo.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
