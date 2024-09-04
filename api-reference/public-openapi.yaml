@@ -1,0 +1,273 @@
+openapi: 3.0.0
+info:
+  title: Hyrd Public Endpoints
+  version: 1.0.0
+servers:
+  - url: http://{{dev_url}}
+  - url: http://{{staging_url}}
+tags:
+  - name: Users
+paths:
+  /v1/login:
+    post:
+      tags:
+        - Users
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user:
+                  login: bobbyong-coingecko@yopmail.com
+                  password: Password1!
+      parameters:
+        - name: Cache-Control
+          in: header
+          schema:
+            type: string
+          example: no-cache
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-0:
+                  summary: Login Student
+                  value: |-
+                    {
+                        "message": "Success",
+                        "status": 200,
+                        "data": {
+                            "id": "c2a521ef-055f-4895-9cb3-05783777f86e",
+                            "email": "gaius.octavius@gmx.de",
+                            "slug": "sebastian-kormenus_2667d049",
+                            "role": "candidate",
+                            "language": "de",
+                            "user_detail": {
+                                "first_name": "Alina",
+                                "last_name": "Schmidt",
+                                "profile_image": "https://hyrd-twilight.s3.eu-central-1.amazonaws.com/student-images/profile-sebastian-kormenus_2667d049.webp?response-content-disposition=attachment%3B%20filename%3D%22profile-sebastian-kormenus_2667d049.webp%22%3B%20filename%2A%3DUTF-8%27%27profile-sebastian-kormenus_2667d049.webp&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA6P562IZOO7EQUHZK%2F20240327%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240327T120030Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0e4e6ed4aa77e9651d25b26bbb6542a2e9e114efcdc655578061075c68a9e9fd",
+                                "background_image": "https://hyrd-twilight.s3.eu-central-1.amazonaws.com/student-images/background-sebastian-kormenus_2667d049.jpg?response-content-disposition=inline%3B%20filename%3D%22background-sebastian-kormenus_2667d049.jpg%22%3B%20filename%2A%3DUTF-8%27%27background-sebastian-kormenus_2667d049.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA6P562IZOO7EQUHZK%2F20240327%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240327T120030Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=77ea782f9363641e42d72d5b7de456dc1030249e28fb39b339667510bf85eabe",
+                                "user_community_detail": {
+                                    "community_member": true,
+                                    "community_username": "Gaius",
+                                    "community_profile_image": "",
+                                    "qualifications": {
+                                        "status": "Founder",
+                                        "qualification": "Breakthrough Energy",
+                                        "logo": "",
+                                        "verified": false
+                                    }
+                                },
+                                "has_linked_in_profile": true
+                            },
+                            "login_auth_token": "zQYK1QCabv9vEu17Z5UrS5JT",
+                            "route_to_new_company_product": false,
+                            "phone": "+4915231415350",
+                            "subscriptions": null
+                        }
+                    }
+                example-1:
+                  summary: Login Company
+                  value: |-
+                    {
+                        "message": "Success",
+                        "status": 200,
+                        "data": {
+                            "id": "1a6cf9b7-afea-42d6-8213-e8fc4a97712c",
+                            "email": "hyrd.demo@gmx.de",
+                            "slug": "dennis-pfaff_5a7e936c",
+                            "role": "company_admin",
+                            "language": "en",
+                            "user_detail": {
+                                "first_name": "Emely",
+                                "last_name": "Müller",
+                                "profile_image": "https://hyrd-twilight.s3.eu-central-1.amazonaws.com/company/hyrd-gmbh/company-user/profile-dennis-pfaff_5a7e936c.jpg?response-content-disposition=inline%3B%20filename%3D%22profile-dennis-pfaff_5a7e936c.jpg%22%3B%20filename%2A%3DUTF-8%27%27profile-dennis-pfaff_5a7e936c.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA6P562IZOO7EQUHZK%2F20240327%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240327T115915Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=357be09bb62de1e13735a4dc472d0e72881106739b95d578baef29ce7f97245d",
+                                "position": " Position ",
+                                "company_name": "hyrd GmbH TESTING",
+                                "company_image": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-87b0e811-7522-43e1-91a7-ce9dd5539da7",
+                                "message_signature": "Ellen \nSignature",
+                                "about_me": "Answer?\nwhat?",
+                                "company_slug": "hyrd-gmbh"
+                            },
+                            "login_auth_token": "smjBdxamvQvWkf9zCoZWgYT7",
+                            "route_to_new_company_product": true,
+                            "phone": null,
+                            "subscriptions": [
+                                "ai_engagement_catch_up",
+                                "dashboard",
+                                "telegram_communication",
+                                "whatsapp_communication",
+                                "users_management",
+                                "channels",
+                                "talent_communities",
+                                "message_automation",
+                                "candidates_job_matching",
+                                "talent_space_settings",
+                                "social_media_integration",
+                                "widget_settings",
+                                "leads",
+                                "chatbot_verification_count",
+                                "chatbot_daily_messages_per_user",
+                                "chatbot_monthly_messages",
+                                "transfer_to_ats",
+                                "tracking_dashboard"
+                            ]
+                        }
+                    }
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Success
+                status: 200
+                data:
+                  email: pribadi.mulyono@hyrd.de
+                  role: admin
+        '401':
+          description: Unauthorized
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 27 Mar 2024 12:01:06 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache
+            X-Request-Id:
+              schema:
+                type: string
+                example: aedccec59e1d82941db9f4c38f8a4cf9
+            X-Runtime:
+              schema:
+                type: number
+                example: '0.050598'
+            vary:
+              schema:
+                type: string
+                example: Origin
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=15724800; includeSubDomains
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error: Invalid Login or password.
+  /v1/logout:
+    delete:
+      tags:
+        - Users
+      summary: Log out
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{Bearer Token}}
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 27 Mar 2024 12:08:43 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            X-XSS-Protection:
+              schema:
+                type: integer
+                example: '0'
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Download-Options:
+              schema:
+                type: string
+                example: noopen
+            X-Permitted-Cross-Domain-Policies:
+              schema:
+                type: string
+                example: none
+            Referrer-Policy:
+              schema:
+                type: string
+                example: strict-origin-when-cross-origin
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  _interslice_session=w%2FKBLc7%2FQz2rwj%2BBciWaZy36quGaI9d3S2zfML%2BQ7ro8W1eY%2BQwPvy%2BeC8HzSjjqsNUzSI%2BB7QxFgQAjp08m9%2BUHfdE96FDNyw27Awii2EKiXUCgO3W0rSwu627KnV0j09%2BxQpTcPiQQEwfSlVwZ1D4FNJYvd5aWopc5XyGcbtCpBICR7Ie4R3hCpA%3D%3D--l6ZTb%2BKPAwv9n2Ci--mhnvIWMgTysmz0HjFORCJA%3D%3D;
+                  path=/; HttpOnly; SameSite=Lax
+            ETag:
+              schema:
+                type: string
+                example: W/"0cb859d39dbb161bffef86ac71f21443"
+            Cache-Control:
+              schema:
+                type: string
+                example: max-age=0, private, must-revalidate
+            X-Request-Id:
+              schema:
+                type: string
+                example: d7d56f2a86b29c58641e422d780e517e
+            X-Runtime:
+              schema:
+                type: number
+                example: '0.006202'
+            vary:
+              schema:
+                type: string
+                example: Origin
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=15724800; includeSubDomains
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: logged out successfully
+                status: 200

@@ -73,6 +73,13 @@
       ]
     },
     {
+      "group": "Users",
+      "pages": [
+        "api-reference/endpoint/users/login",
+        "api-reference/endpoint/users/log-out"
+      ]
+    },
+    {
       "group": "Ana",
       "pages": [
         "api-reference/ana/ping-pong",
