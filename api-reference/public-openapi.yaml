@@ -13,6 +13,87 @@ paths:
       tags:
         - Users
       summary: Login
+      description: >-
+        ### **Login API Documentation**
+
+
+        #### **API Overview**
+
+
+        - **Name:** Login API
+            
+        - **Description:** This API endpoint allows users to log in by providing
+        their credentials (username/email and password).
+            
+        - **Method:** `POST`
+            
+        - **Endpoint URL:** `/v1/login`
+            
+
+        ### **Authentication**
+
+
+        - No authentication is required to access this endpoint, as this is the
+        login process.
+            
+
+        ### **Request**
+
+
+        #### **HTTP Method:**
+
+
+        - `POST`
+            
+
+        #### **URL:**
+
+
+        - `/v1/login`
+            
+
+        #### **Headers:**
+
+
+        | Header Name | Description | Required | Example |
+
+        | --- | --- | --- | --- |
+
+        | `Content-Type` | The content type of the request | Yes |
+        `application/json` |
+
+        | `Accept` | Expected response format | No | `application/json` |
+
+
+        #### **Request Body:**
+
+
+        The request body should be sent in JSON format with the following
+        parameters:
+
+
+        | Field Name | Data Type | Description | Required | Example |
+
+        | --- | --- | --- | --- | --- |
+
+        | `email` | `string` | The email of the user | Yes |
+        `"user@example.com"` |
+
+        | `password` | `string` | The password of the user | Yes |
+        `"yourpassword123"` |
+
+
+        ### **Responses**
+
+
+        #### **Success Response:**
+
+
+        - **Status Code:** `200 OK`
+            
+        - **Message:** `Success`
+            
+        - **Data:** `User object`
       requestBody:
         content:
           application/json:
@@ -20,120 +101,15 @@ paths:
               type: object
               example:
                 user:
-                  login: bobbyong-coingecko@yopmail.com
-                  password: Password1!
+                  login: john.doe@yopmail.com
+                  password: yourpassword123
       parameters:
-        - name: Cache-Control
-          in: header
-          schema:
-            type: string
-          example: no-cache
         - name: Content-Type
           in: header
           schema:
             type: string
           example: application/json
       responses:
-        '200':
-          description: OK
-          content:
-            text/plain:
-              schema:
-                type: string
-              examples:
-                example-0:
-                  summary: Login Student
-                  value: |-
-                    {
-                        "message": "Success",
-                        "status": 200,
-                        "data": {
-                            "id": "c2a521ef-055f-4895-9cb3-05783777f86e",
-                            "email": "gaius.octavius@gmx.de",
-                            "slug": "sebastian-kormenus_2667d049",
-                            "role": "candidate",
-                            "language": "de",
-                            "user_detail": {
-                                "first_name": "Alina",
-                                "last_name": "Schmidt",
-                                "profile_image": "https://hyrd-twilight.s3.eu-central-1.amazonaws.com/student-images/profile-sebastian-kormenus_2667d049.webp?response-content-disposition=attachment%3B%20filename%3D%22profile-sebastian-kormenus_2667d049.webp%22%3B%20filename%2A%3DUTF-8%27%27profile-sebastian-kormenus_2667d049.webp&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA6P562IZOO7EQUHZK%2F20240327%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240327T120030Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0e4e6ed4aa77e9651d25b26bbb6542a2e9e114efcdc655578061075c68a9e9fd",
-                                "background_image": "https://hyrd-twilight.s3.eu-central-1.amazonaws.com/student-images/background-sebastian-kormenus_2667d049.jpg?response-content-disposition=inline%3B%20filename%3D%22background-sebastian-kormenus_2667d049.jpg%22%3B%20filename%2A%3DUTF-8%27%27background-sebastian-kormenus_2667d049.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA6P562IZOO7EQUHZK%2F20240327%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240327T120030Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=77ea782f9363641e42d72d5b7de456dc1030249e28fb39b339667510bf85eabe",
-                                "user_community_detail": {
-                                    "community_member": true,
-                                    "community_username": "Gaius",
-                                    "community_profile_image": "",
-                                    "qualifications": {
-                                        "status": "Founder",
-                                        "qualification": "Breakthrough Energy",
-                                        "logo": "",
-                                        "verified": false
-                                    }
-                                },
-                                "has_linked_in_profile": true
-                            },
-                            "login_auth_token": "zQYK1QCabv9vEu17Z5UrS5JT",
-                            "route_to_new_company_product": false,
-                            "phone": "+4915231415350",
-                            "subscriptions": null
-                        }
-                    }
-                example-1:
-                  summary: Login Company
-                  value: |-
-                    {
-                        "message": "Success",
-                        "status": 200,
-                        "data": {
-                            "id": "1a6cf9b7-afea-42d6-8213-e8fc4a97712c",
-                            "email": "hyrd.demo@gmx.de",
-                            "slug": "dennis-pfaff_5a7e936c",
-                            "role": "company_admin",
-                            "language": "en",
-                            "user_detail": {
-                                "first_name": "Emely",
-                                "last_name": "Müller",
-                                "profile_image": "https://hyrd-twilight.s3.eu-central-1.amazonaws.com/company/hyrd-gmbh/company-user/profile-dennis-pfaff_5a7e936c.jpg?response-content-disposition=inline%3B%20filename%3D%22profile-dennis-pfaff_5a7e936c.jpg%22%3B%20filename%2A%3DUTF-8%27%27profile-dennis-pfaff_5a7e936c.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA6P562IZOO7EQUHZK%2F20240327%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240327T115915Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=357be09bb62de1e13735a4dc472d0e72881106739b95d578baef29ce7f97245d",
-                                "position": " Position ",
-                                "company_name": "hyrd GmbH TESTING",
-                                "company_image": "https://cdn-dev.hyrd.ai/database/company-logo/hyrd-gmbh-6115-87b0e811-7522-43e1-91a7-ce9dd5539da7",
-                                "message_signature": "Ellen \nSignature",
-                                "about_me": "Answer?\nwhat?",
-                                "company_slug": "hyrd-gmbh"
-                            },
-                            "login_auth_token": "smjBdxamvQvWkf9zCoZWgYT7",
-                            "route_to_new_company_product": true,
-                            "phone": null,
-                            "subscriptions": [
-                                "ai_engagement_catch_up",
-                                "dashboard",
-                                "telegram_communication",
-                                "whatsapp_communication",
-                                "users_management",
-                                "channels",
-                                "talent_communities",
-                                "message_automation",
-                                "candidates_job_matching",
-                                "talent_space_settings",
-                                "social_media_integration",
-                                "widget_settings",
-                                "leads",
-                                "chatbot_verification_count",
-                                "chatbot_daily_messages_per_user",
-                                "chatbot_monthly_messages",
-                                "transfer_to_ats",
-                                "tracking_dashboard"
-                            ]
-                        }
-                    }
-            application/json:
-              schema:
-                type: object
-              example:
-                message: Success
-                status: 200
-                data:
-                  email: pribadi.mulyono@hyrd.de
-                  role: admin
         '401':
           description: Unauthorized
           headers:
@@ -184,6 +160,82 @@ paths:
       tags:
         - Users
       summary: Log out
+      description: >-
+        ### **Logout API Documentation**
+
+
+        #### **API Overview**
+
+
+        - **Name:** Logout API
+            
+        - **Description:** This API endpoint allows users to log out by
+        invalidating their session or token.
+            
+        - **Method:** `Delete`
+            
+        - **Endpoint URL:** `/v1/logout`
+            
+
+        ### **Authentication**
+
+
+        - **Authentication Required:** Yes
+            
+        - The user must be authenticated (i.e., must include a valid token) to
+        successfully log out.
+            
+
+        ### **Request**
+
+
+        #### **HTTP Method:**
+
+
+        - `Delete`
+            
+
+        #### **URL:**
+
+
+        - `/v1/logout`
+            
+
+        #### **Headers:**
+
+
+        | Header Name | Description | Required | Example |
+
+        | --- | --- | --- | --- |
+
+        | `Authorization` | Bearer token used to authenticate the user | Yes |
+        `Bearer` |
+
+        | `Content-Type` | The content type of the request | No |
+        `application/json` |
+
+
+        **Note:** The token should be passed in the `Authorization` header as a
+        Bearer token.
+
+
+        #### **Request Body:**
+
+
+        No request body is necessary for this endpoint.
+
+
+        ### **Responses**
+
+
+        #### **Success Response:**
+
+
+        - **Status Code:** `200 OK`
+            
+
+        If the logout is successful, the response confirms that the user has
+        been logged out.
       parameters:
         - name: Authorization
           in: header
