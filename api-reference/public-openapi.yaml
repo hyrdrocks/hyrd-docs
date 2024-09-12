@@ -34,6 +34,7 @@ servers:
   - url: http://{{dev_url}}
   - url: http://{{staging_url}}
   - url: http://{{dev_api}}
+  - url: https://dev-api.hyrd.de
 tags:
   - name: Users
     description: >-
@@ -469,3 +470,493 @@ paths:
                   - id: 10
                     name_ger: Vollzeit (befristet)
                     name_eng: Full-Time (fixed term)
+  /v1/general/business-areas:
+    get:
+      tags:
+        - General
+      summary: Business Area Division
+      description: >-
+        ### Retrieve Business Area Division
+
+
+        This endpoint makes an HTTP GET request to retrieve a list of Business
+        area division.
+
+
+        #### Request
+
+
+        - Method: GET
+            
+        - URL: `/v1/general/business-areas`
+            
+
+        **Query**
+
+
+        - lang: Optional | default de
+            
+
+        #### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        Example response body:
+
+
+        ``` json
+
+        {
+            "message":"Success",
+            "status":200,
+            "data":[
+                {
+                    "id": 1,
+                    "name":"Shop"
+                }
+            ]
+        }
+
+         ```
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Success
+                status: 200
+                data:
+                  - id: 1
+                    name: Einkauf & Verkauf
+                    area:
+                      - id: 1
+                        name: Einkauf
+                      - id: 2
+                        name: Kundenservice
+                      - id: 3
+                        name: Sales
+                  - id: 2
+                    name: Management & Organisation
+                    area:
+                      - id: 4
+                        name: Management & Strategie
+                      - id: 5
+                        name: Business Development
+                      - id: 6
+                        name: Organisation & Infrastructure
+                      - id: 7
+                        name: Human Resources
+                  - id: 3
+                    name: Marketing & Kommunikation
+                    area:
+                      - id: 8
+                        name: Kommunikation / PR / Events
+                      - id: 9
+                        name: Marketing & Online-Marketing
+                  - id: 4
+                    name: Finanzen & Buchhaltung
+                    area:
+                      - id: 16
+                        name: Accounting
+                      - id: 17
+                        name: Controlling
+                      - id: 18
+                        name: Finanzierung & Treasury
+                      - id: 19
+                        name: Steuern
+                      - id: 15
+                        name: Audit & Wirtschaftsprüfung
+                  - id: 5
+                    name: Consulting
+                    area:
+                      - id: 13
+                        name: Technische Beratung
+                      - id: 14
+                        name: Steuerberatung
+                      - id: 11
+                        name: IT Beratung
+                      - id: 10
+                        name: Unternehmensberatung
+                      - id: 12
+                        name: Personalberatung
+                  - id: 6
+                    name: Banken & Vermögensverwaltung
+                    area:
+                      - id: 20
+                        name: Asset Management
+                      - id: 21
+                        name: Bank Treasury
+                      - id: 22
+                        name: Corporate Banking
+                      - id: 23
+                        name: Financial Technology
+                      - id: 24
+                        name: Investment Banking & Corporate Finance
+                      - id: 26
+                        name: Private Wealth Management
+                      - id: 28
+                        name: Research
+                      - id: 29
+                        name: Retail Banking
+                      - id: 30
+                        name: Risk Management
+                      - id: 31
+                        name: Transaction Banking
+                      - id: 32
+                        name: Transactions &  Operations
+                      - id: 25
+                        name: Capital Markets
+                      - id: 27
+                        name: Projektfinanzierung & Spezialfinanzierung
+                  - id: 7
+                    name: Versicherungswesen & Finanzdienstleistung
+                    area:
+                      - id: 33
+                        name: Zentralbank & Bankenaufsicht
+                      - id: 34
+                        name: Finanzdienstleistung
+                      - id: 35
+                        name: 'Aktuariat & Insurance Risk Management '
+                      - id: 36
+                        name: 'Schadensregulierung & Specialist '
+                      - id: 37
+                        name: Sales & Salessupport
+                  - id: 8
+                    name: Jura & Rechtswesen
+                    area:
+                      - id: 38
+                        name: Arbeitsrecht
+                      - id: 39
+                        name: Bank- & Finanzrecht
+                      - id: 40
+                        name: Compliance
+                      - id: 41
+                        name: Gesellschaftsrecht
+                      - id: 44
+                        name: Kartellrecht & Wettbewerbsrecht
+                      - id: 45
+                        name: M&A / IPO / Wertpapierrecht
+                      - id: 46
+                        name: Markenrecht
+                      - id: 47
+                        name: Nachfolge / Vermögen / Stiftungen
+                      - id: 48
+                        name: Notariat
+                      - id: 49
+                        name: Patentrecht
+                      - id: 50
+                        name: PE & VC
+                      - id: 51
+                        name: Wirtschafts- & Steuerstrafrecht
+                      - id: 52
+                        name: Dispute Resolution
+                      - id: 53
+                        name: Verwaltungsrecht
+                      - id: 54
+                        name: Steuerrecht
+                      - id: 55
+                        name: Strafrecht
+                      - id: 56
+                        name: Energierecht / Gesundheitsrecht / Lebensmittelrecht
+                      - id: 57
+                        name: Umweltrecht
+                      - id: 58
+                        name: Technologie & Medien
+                      - id: 59
+                        name: Versicherungsrecht
+                      - id: 60
+                        name: Vertrieb / Handel / Logistik
+                      - id: 42
+                        name: Immobilien- & Baurecht
+                      - id: 43
+                        name: Insolvenzrecht und Restrukturierung
+                  - id: 9
+                    name: Startups & Digitalisierung
+                    area:
+                      - id: 61
+                        name: Startup
+                      - id: 62
+                        name: Technologie & Digitalisierung
+                  - id: 10
+                    name: IT & Softwareentwicklung
+                    area:
+                      - id: 63
+                        name: Hardware
+                      - id: 64
+                        name: IT Projekt- & Produktmanagement
+                      - id: 65
+                        name: Infrastruktur / Netzwerke / Telekom
+                      - id: 66
+                        name: Softwareentwicklung
+                      - id: 67
+                        name: Web Design
+                  - id: 11
+                    name: Ingenieurwesen & Technik
+                    area:
+                      - id: 68
+                        name: Architektur & Stadtplanung
+                      - id: 69
+                        name: Automatisierungstechnik
+                      - id: 70
+                        name: Bauingenieurwesen
+                      - id: 71
+                        name: Biotechnologie
+                      - id: 72
+                        name: Chemieingenieurwesen
+                      - id: 73
+                        name: Elektrotechnik
+                      - id: 74
+                        name: Energie- & Umwelttechnik
+                      - id: 75
+                        name: Fahrzeugtechnik
+                      - id: 76
+                        name: Informationstechnik
+                      - id: 77
+                        name: Luft- & Raumfahrttechnik
+                      - id: 78
+                        name: Maschinenbau
+                      - id: 79
+                        name: Mechatronik
+                      - id: 80
+                        name: Verfahrenstechnik
+                      - id: 81
+                        name: Weitere Ingenieurwissenschaften
+                      - id: 82
+                        name: Werkstofftechnik
+                      - id: 83
+                        name: Technischer Vertrieb
+                      - id: 84
+                        name: Entwicklung
+                      - id: 85
+                        name: Konstruktion
+                      - id: 86
+                        name: Produktion
+                      - id: 88
+                        name: Qualität & Instandhaltung
+                      - id: 87
+                        name: Logistik & Supply Chain
+                  - id: 12
+                    name: Naturwissenschaften
+                    area:
+                      - id: 89
+                        name: Biologie
+                      - id: 90
+                        name: Mathematik
+                      - id: 91
+                        name: Chemie
+                      - id: 92
+                        name: Physik
+                      - id: 93
+                        name: Forschung
+                      - id: 94
+                        name: Energie & Rohstoffe
+                      - id: 102
+                        name: Agrar
+                      - id: 103
+                        name: Hotellier
+                  - id: 13
+                    name: Design, Gestaltung & Medien
+                    area:
+                      - id: 96
+                        name: Journalismus & Verlagswesen
+                      - id: 97
+                        name: Film / Funk / Fernsehen
+                      - id: 95
+                        name: Design / Gestaltung / Mode
+                  - id: 14
+                    name: Gesundheit
+                    area:
+                      - id: 98
+                        name: Medizin & Psychologie
+                      - id: 99
+                        name: Pharma
+                  - id: 15
+                    name: Öffentlicher Sektor
+                    area:
+                      - id: 100
+                        name: Verwaltung
+                  - id: 16
+                    name: Bildung & Soziales
+                    area:
+                      - id: 101
+                        name: Bildung & Soziales
+  /v1/general/university-degrees:
+    get:
+      tags:
+        - General
+      summary: University Degree
+      description: >-
+        ### Retrieve University
+
+
+        This endpoint makes an HTTP GET request to retrieve a list of university
+        degree.
+
+
+        #### Request
+
+
+        - Method: GET
+            
+        - URL: `/v1/general/university-degree`
+            
+
+        **Query**
+
+
+        - lang: Optional | default de
+            
+
+        #### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        Example response body:
+
+
+        ``` json
+
+        {
+            "message":"Success",
+            "status":200,
+            "data":[
+                {
+                    "id": 1,
+                    "name":"Bachelor of science"
+                }
+            ]
+        }
+
+         ```
+      parameters:
+        - name: lang
+          in: query
+          schema:
+            type: string
+          example: en
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                    "message": "Success",
+                    "status": 200,
+                    "data": [
+                        {
+                            "id": 1,
+                            "value": "Bachelor of Arts"
+                        },
+                        {
+                            "id": 2,
+                            "value": "Bachelor of Science"
+                        },
+                        {
+                            "id": 3,
+                            "value": "Bachelor of Engineering"
+                        },
+                        {
+                            "id": 4,
+                            "value": "Bachelor of Laws"
+                        },
+                        {
+                            "id": 5,
+                            "value": "Bachelor of Education"
+                        },
+                        {
+                            "id": 6,
+                            "value": "Bachelor of Music"
+                        },
+                        {
+                            "id": 7,
+                            "value": "Bachelor of Fine Arts"
+                        },
+                        {
+                            "id": 8,
+                            "value": "Bachelor of Musical Arts"
+                        },
+                        {
+                            "id": 9,
+                            "value": "Master of Arts"
+                        },
+                        {
+                            "id": 10,
+                            "value": "Master of Science"
+                        },
+                        {
+                            "id": 11,
+                            "value": "Master of Engineering"
+                        },
+                        {
+                            "id": 12,
+                            "value": "Master of Laws"
+                        },
+                        {
+                            "id": 13,
+                            "value": "Master of Education"
+                        },
+                        {
+                            "id": 14,
+                            "value": "Master of Music"
+                        },
+                        {
+                            "id": 15,
+                            "value": "Master of Fine Arts"
+                        },
+                        {
+                            "id": 16,
+                            "value": "Master of Musical Arts"
+                        },
+                        {
+                            "id": 17,
+                            "value": "Magister Artium"
+                        },
+                        {
+                            "id": 18,
+                            "value": "Magister Legum"
+                        },
+                        {
+                            "id": 19,
+                            "value": "Erstes Staatsexamen"
+                        },
+                        {
+                            "id": 20,
+                            "value": "Zweites Staatsexamen"
+                        },
+                        {
+                            "id": 21,
+                            "value": "Promotion"
+                        },
+                        {
+                            "id": 22,
+                            "value": "MBA"
+                        },
+                        {
+                            "id": 23,
+                            "value": "Diplom"
+                        },
+                        {
+                            "id": 24,
+                            "value": "Vollzeit"
+                        }
+                    ]
+                }
