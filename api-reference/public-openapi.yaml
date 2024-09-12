@@ -1,11 +1,66 @@
 openapi: 3.0.0
 info:
   title: Pauls Job Public Endpoints
+  description: >-
+    #### **Description:**
+
+
+    This API provides a comprehensive suite of endpoints for managing user
+    authentication, session control, and other key functionalities within the
+    application for Pauls Job. The endpoints are designed to ensure secure and
+    efficient communication between clients and the server, offering robust
+    access control mechanisms through token-based authentication.
+
+
+    #### **Key Features:**
+
+
+    - **Authentication:** Allows users to securely log in using their
+    credentials and receive a token for accessing protected resources.
+        
+    - **Session Management:** Provides a logout mechanism to securely end user
+    sessions and invalidate tokens.
+        
+    - **Error Handling:** Clear and descriptive error messages ensure that
+    issues such as invalid credentials, expired tokens, or missing parameters
+    are easily identifiable.
+        
+
+    This API is built with a focus on security and ease of use, making it
+    essential for integrating user authentication and session management into
+    applications while maintaining a high standard of data protection.
   version: 1.0.0
 servers:
-  - url: https://api.hyrd.de
+  - url: http://{{dev_url}}
+  - url: http://{{staging_url}}
+  - url: http://{{dev_api}}
 tags:
   - name: Users
+    description: >-
+      #### **Description:**
+
+
+      The folder contains the foundational information and essential API
+      endpoints for starting with the authentication and session management of
+      the application. This includes the critical login and logout
+      functionalities, which are necessary for users to authenticate and manage
+      their sessions securely.
+
+
+      #### **APIs Included:**
+
+
+      1. **Login API**: Allows users to log in by providing their credentials
+      and receive an authentication token.
+          
+      2. **Logout API**: Enables users to log out by invalidating the token and
+      ending their session.
+          
+
+      These endpoints are designed to facilitate secure access control and
+      session handling, making them an essential starting point for any
+      interaction with the platform's protected resources.
+  - name: General
 paths:
   /v1/login:
     post:
@@ -322,3 +377,95 @@ paths:
               example:
                 message: logged out successfully
                 status: 200
+  /v1/general/job-types:
+    get:
+      tags:
+        - General
+      summary: Job Types
+      description: |-
+        ### Retrieve Job Types
+
+        This endpoint makes an HTTP GET request to retrieve a list of job types.
+
+        #### Request
+
+        - Method: GET
+            
+        - URL: `/v1/general/job-types`
+            
+
+        #### Response
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        Example response body:
+
+        ``` json
+        {
+            "message":"Success",
+            "status":200,
+            "data":[
+                {
+                    "id": 1,
+                    "name_ger":"Praktikant",
+                    "name_eng":"Internship"
+                }
+            ]
+        }
+
+         ```
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Success
+                status: 200
+                data:
+                  - id: 1
+                    name_ger: Praktikant
+                    name_eng: Internship
+                  - id: 2
+                    name_ger: Werkstudent
+                    name_eng: Working student
+                  - id: 3
+                    name_ger: Trainee
+                    name_eng: Trainee
+                  - id: 7
+                    name_ger: Duales Studium
+                    name_eng: Dual studies
+                  - id: 4
+                    name_ger: Festanstellung
+                    name_eng: Permanent position
+                  - id: 8
+                    name_ger: Referendariat
+                    name_eng: Clerkship
+                  - id: 5
+                    name_ger: Bachelorarbeit (im Unternehmen)
+                    name_eng: Bachelor thesis (in company)
+                  - id: 6
+                    name_ger: Masterarbeit (im Unternehmen)
+                    name_eng: Master thesis (in company)
+                  - id: 14
+                    name_ger: Studentische Hilfskraft
+                    name_eng: Student Resarch Assistant
+                  - id: 15
+                    name_ger: Wissenschaftlicher Mitarbeiter / Doktorand
+                    name_eng: Research Assistant / PhD Student
+                  - id: 9
+                    name_ger: Teilzeit (befristet)
+                    name_eng: Part-Time (fixed term)
+                  - id: 10
+                    name_ger: Vollzeit (befristet)
+                    name_eng: Full-Time (fixed term)
