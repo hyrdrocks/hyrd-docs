@@ -82,7 +82,9 @@
     {
       "group": "General",
       "pages": [
-        "api-reference/endpoint/general/job-types"
+        "api-reference/endpoint/general/job-types",
+        "api-reference/endpoint/general/business-area-division",
+        "api-reference/endpoint/general/university-degree"
       ]
     }
   ],
