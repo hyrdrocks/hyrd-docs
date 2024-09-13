@@ -31,9 +31,7 @@ info:
     applications while maintaining a high standard of data protection.
   version: 1.0.0
 servers:
-  - url: http://{{dev_url}}
-  - url: http://{{staging_url}}
-  - url: http://{{dev_api}}
+  - url: https://api.hyrd.de
   - url: https://dev-api.hyrd.de
 tags:
   - name: Users
