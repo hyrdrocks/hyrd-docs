@@ -86,6 +86,20 @@
         "api-reference/endpoint/general/business-area-division",
         "api-reference/endpoint/general/university-degree"
       ]
+    },
+    {
+      "group": "Company > Candidate",
+      "pages": [
+        "api-reference/endpoint/company->-candidate/fill-candidate-data"
+      ]
+    },
+    {
+      "group": "Company > Api Integrations",
+      "pages": [
+        "api-reference/endpoint/company->-api-integrations/get-list-api-integrations",
+        "api-reference/endpoint/company->-api-integrations/create-api-keys",
+        "api-reference/endpoint/company->-api-integrations/delete-api-keys"
+      ]
     }
   ],
   "footerSocials": {

@@ -31,8 +31,14 @@ info:
     applications while maintaining a high standard of data protection.
   version: 1.0.0
 servers:
-  - url: https://api.hyrd.de
   - url: https://dev-api.hyrd.de
+  - url: https://staging-api.hyrd.de
+  - url: https://api.hyrd.de
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
 tags:
   - name: Users
     description: >-
@@ -60,6 +66,9 @@ tags:
       session handling, making them an essential starting point for any
       interaction with the platform's protected resources.
   - name: General
+  - name: Company
+  - name: Company > Candidate
+  - name: Company > Api Integrations
 paths:
   /v1/login:
     post:
@@ -958,3 +967,389 @@ paths:
                         }
                     ]
                 }
+  /gin/v1/company/candidate/upload-candidate-data:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Fill Candidate data
+      description: >-
+        This endpoint allows the user to upload candidate data to the company's
+        system. The request should be sent as an HTTP POST to the
+        {{Staging_API}}/gin/v1/company/candidate/upload-candidate-data URL.
+
+
+        ### Request Body
+
+
+        The request body should be in the raw format and include the following
+        parameters:
+
+
+        - `system`: An object containing the candidate's email and phone
+        information.
+            
+            - `email`: The candidate's email address.
+                
+            - `phone`: The candidate's phone number.
+                
+        - `user`: An object containing the candidate's personal information.
+            
+            - `email`: The candidate's email address.
+                
+            - `first_name`: The candidate's first name.
+                
+            - `last_name`: The candidate's last name.
+                
+            - `city`: The candidate's city of residence.
+                
+            - `street`: The candidate's street address.
+                
+            - `zip_code`: The candidate's zip code.
+                
+            - `phone`: The candidate's phone number.
+                
+            - `birthday`: The candidate's date of birth.
+                
+            - `whatsapp_preference`: The candidate's preference for WhatsApp communication.
+                
+            - `sms_preference`: The candidate's preference for SMS communication.
+                
+            - `email_preference`: The candidate's preference for email communication.
+                
+        - `job_experiences`: An array containing the candidate's job
+        experiences.
+            
+        - `universities`: An array containing the candidate's university
+        information.
+            
+        - `it_skills`: An array containing the candidate's IT skills.
+            
+        - `hobbies`: An array containing the candidate's hobbies.
+            
+        - `other`: An array containing any other relevant information.
+            
+        - `joining_talent_community_ids`: An array containing the candidate's
+        talent community IDs.
+            
+            - `channel`: The channel ID.
+                
+            - `tc_id`: The talent community ID.
+                
+
+        ### Response
+
+
+        The response received has the following JSON schema:
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "status": {
+              "type": "integer"
+            }
+          }
+        }
+
+         ```
+
+        The last execution of this request returned a 404 status code with an
+        empty message and a status value of 0 in the response.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                system:
+                  email: yokata1@yopmail.com
+                  phone: ''
+                user:
+                  email: yokata2@yopmail.com
+                  first_name: Emily
+                  last_name: Smithdaughter
+                  city: Bekasi
+                  street: 456 Cedar Ave
+                  zip_code: '12345'
+                  phone: '+101912919'
+                  birthday: null
+                  whatsapp_preference: false
+                  sms_preference: false
+                  email_preference: false
+                job_experiences: []
+                universities: []
+                it_skills: []
+                hobbies: []
+                other: []
+                joining_talent_community_ids:
+                  - channel: 4411aa5d
+                    tc_id: 354
+      parameters:
+        - name: x-company-api-key
+          in: header
+          schema:
+            type: string
+          example: 555be1b3-c2f5-4cc4-aab7-de051ec501e4
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/company/api-integrations:
+    get:
+      tags:
+        - Company > Api Integrations
+      summary: Get List API integrations
+      description: |-
+        ### Retrieve Data
+
+        This endpoint allows you to retrieve the data.
+
+        #### Request Body
+
+        This request does not require a request body.
+
+        #### Response Body
+
+        The response will contain the data requested.
+
+        ``` json
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+         ```
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Success
+                status: 200
+                data:
+                  - id: 1
+                    value: 336cdcd4-e7bd-40b9-bfb5-ccd85cb8282b
+    post:
+      tags:
+        - Company > Api Integrations
+      summary: Create API Keys
+      description: >-
+        ### POST /v1/company/api-integrations
+
+
+        This endpoint is used to create a new API integration for the company.
+
+
+        #### Request Body
+
+
+        - No request body parameters are required for this endpoint.
+            
+
+        #### Response
+
+
+        The response for this request will be in JSON format with the following
+        schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        },
+                        "value": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+
+         ```
+
+        The response will include:
+
+
+        - `message`: A string indicating the status message.
+            
+        - `status`: An integer representing the status of the request.
+            
+        - `data`: An object containing the `id` and `value` of the newly created
+        API integration.
+            
+
+        #### Example Response
+
+
+        ``` json
+
+        {
+            "message": "",
+            "status": 0,
+            "data": {
+                "id": 0,
+                "value": ""
+            }
+        }
+
+         ```
+      requestBody:
+        content: {}
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Success
+                status: 200
+                data:
+                  id: 6
+                  value: 31c9acca-7075-4bdb-bf83-ff4994843abb
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: You are not authorized
+                status: 401
+  /v1/company/api-integrations/{api-key-id}:
+    delete:
+      tags:
+        - Company > Api Integrations
+      summary: Delete API Keys
+      description: >-
+        This endpoint allows you to delete a specific API integration for a
+        company using the provided API key ID.
+
+
+        ### Request Body
+
+
+        This request does not require a request body.
+
+
+        ### Response
+
+
+        - `message` (string): A message indicating the result of the operation.
+            
+        - `status` (integer): A status code indicating the outcome of the
+        request.
+            
+        - `data` (object, optional): Additional data related to the operation,
+        if available. In the provided example, it includes a variable field.
+            
+
+        #### Example Response
+
+
+        ``` json
+
+        {
+            "message": "Success",
+            "status": 200
+        }
+
+         ```
+      parameters:
+        - name: api-key-id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Success
+                  value:
+                    message: Success
+                    status: 200
+                example-1:
+                  summary: Api Key not found
+                  value:
+                    message: Api Key könnte nicht gefunden werden
+                    status: 404
+                    data:
+                      variable: Api Key
