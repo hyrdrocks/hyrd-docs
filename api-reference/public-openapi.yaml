@@ -31,11 +31,13 @@ info:
     applications while maintaining a high standard of data protection.
   version: 1.0.0
 servers:
-  - url: https://dev-api.hyrd.de
   - url: https://staging-api.hyrd.de
   - url: https://api.hyrd.de
 components:
   securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
     bearerAuth:
       type: http
       scheme: bearer
@@ -967,6 +969,151 @@ paths:
                         }
                     ]
                 }
+  /gin/v1/company/candidate:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Add candidate system data
+      description: >-
+        ### POST /gin/v1/company/candidate
+
+
+        This endpoint allows the addition of a candidate to a company based on
+        Company Id or authorization api key
+
+
+        #### Request Body
+
+
+        - `phone` (string, optional): The phone number of the candidate.
+        (Required if email is missing)
+            
+        - `email` (string, optional): The email address of the candidate.
+        (Required if phone is missing)
+            
+        - `company_id` (integer, optional): The ID of the company to which the
+        candidate is being added. (Required if you are using internal api key,
+        if you are using specified company api key, you do not need to provide
+        this field)
+            
+
+        #### Response
+
+
+        The response for this request can be represented as a JSON schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "slug": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: ''
+                email: sondh1110003@yopmail.com
+                company_id: 6115
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                    "message": "Candidate input successfully",
+                    "status": "success",
+                    "data": {
+                        "slug": "335516d7-d3ed-4fce-924d-237d07832d58"
+                    }
+                }
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: 400 Failed validation
+                  value:
+                    code: 3
+                    message: 'Failed to input candidate: email or phone must be filled'
+                    details: []
+                example-1:
+                  summary: 400 Wrong email
+                  value:
+                    code: 3
+                    message: 'Failed to input candidate: email must be correct format'
+                    details: []
+                example-2:
+                  summary: 400 Wrong phone number
+                  value:
+                    code: 3
+                    message: >-
+                      Failed to input candidate: phone must be start with + and
+                      digit only
+                    details: []
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: 401 Unauthorized
+                  value:
+                    code: 16
+                    message: token not provided
+                    details: []
+                example-1:
+                  summary: 401 not matched company id
+                  value:
+                    code: 16
+                    message: invalid company ID format
+                    details: []
   /gin/v1/company/candidate/upload-candidate-data:
     post:
       tags:
