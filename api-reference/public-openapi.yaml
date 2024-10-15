@@ -31,7 +31,6 @@ info:
     applications while maintaining a high standard of data protection.
   version: 1.0.0
 servers:
-  - url: https://staging-api.hyrd.de
   - url: https://api.hyrd.de
 components:
   securitySchemes:
