@@ -991,11 +991,6 @@ paths:
         - `email` (string, optional): The email address of the candidate.
         (Required if phone is missing)
             
-        - `company_id` (integer, optional): The ID of the company to which the
-        candidate is being added. (Required if you are using internal api key,
-        if you are using specified company api key, you do not need to provide
-        this field)
-            
 
         #### Response
 
@@ -1034,7 +1029,6 @@ paths:
               example:
                 phone: ''
                 email: sondh1110003@yopmail.com
-                company_id: 6115
       security:
         - noauthAuth: []
       parameters:
@@ -1043,6 +1037,11 @@ paths:
           schema:
             type: string
           example: '{{company-api-key}}'
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: testo
       responses:
         '201':
           description: Created
@@ -1114,6 +1113,39 @@ paths:
                     code: 16
                     message: invalid company ID format
                     details: []
+    put:
+      tags:
+        - Company > Candidate
+      summary: Update Candidate data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_slug: 39c12359-7eaf-407d-9be7-97f522a1e7f2
+                email: mamamia@yopmail.com
+                first_name: Prayogi
+                last_name: Fikri
+                city: Bekasi
+                street: 456 Cedar Ave
+                zip_code: '12345'
+                phone: '+101912919'
+                birthday: null
+                whatsapp_preference: false
+                sms_preference: false
+                email_preference: false
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /gin/v1/company/candidate/upload-candidate-data:
     post:
       tags:
@@ -1247,6 +1279,109 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /gin/v1/company/candidate/job:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Add candidate job
+      description: >-
+        ### Create Company Candidate Job
+
+
+        This endpoint allows the creation of a new job for a candidate within a
+        company.
+
+
+        #### Request Body
+
+
+        - `user_slug` (string): The unique identifier of the user.
+            
+        - `company_name` (string, required): The name of the company.
+            
+        - `start_date` (string, required): The start date of the job.
+            
+        - `end_date` (string, optional): The end date of the job.
+            
+        - `city_name` (string): The name of the city.
+            
+        - `job_type_id` (integer): The ID representing the type of job.
+            
+        - `description` (string): A brief description of the job.
+            
+        - `job_title` (string): The title of the job.
+            
+        - `business_area_division` (string): The division or area of the
+        business.
+            
+        - `lang` (string): The language used for the job details.
+            
+
+        #### Response
+
+
+        - `message` (string): A message related to the request.
+            
+        - `status` (integer): The status of the request.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+            "user_slug": "39c12359-7eaf-407d-9be7-97f522a1e7f2",
+            "company_name": "Shopee",
+            "start_date": "01-03-2024",
+            "end_date": "",
+            "city_name": "Batam",
+            "job_type_id": 2,
+            "description": "Cuman budak",
+            "job_title": "QA tester",
+            "business_area_division": "Consulting",
+            "lang": "de"
+        }
+
+         ```
+
+        ``` json
+
+        {
+            "message": "success",
+            "status": 201
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: |-
+                {
+                    "user_slug": "39c12359-7eaf-407d-9be7-97f522a1e7f2",
+                    "company_name": "Shopee", // required
+                    "start_date": "01-13-2024", //required
+                    "end_date": "", // required,
+                    "city_name": "Batam",
+                    "job_type_id": 2,
+                    "description": "Cuman budak",
+                    "job_title": "QA tester",
+                    "business_area_division": "Consulting",
+                    "lang": "de"
+                }
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
       responses:
         '200':
           description: Successful response
