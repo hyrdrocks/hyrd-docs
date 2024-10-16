@@ -93,7 +93,9 @@
         "api-reference/endpoint/company->-candidate/update-candidate-data",
         "api-reference/endpoint/company->-candidate/add-candidate-system-data",
         "api-reference/endpoint/company->-candidate/fill-candidate-data",
-        "api-reference/endpoint/company->-candidate/add-candidate-job"
+        "api-reference/endpoint/company->-candidate/add-candidate-job",
+        "api-reference/endpoint/company->-candidate/add-candidate-university",
+        "api-reference/endpoint/company->-candidate/add-candidate-it-skills"
       ]
     },
     {

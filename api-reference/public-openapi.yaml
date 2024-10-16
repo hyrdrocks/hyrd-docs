@@ -1386,6 +1386,186 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /gin/v1/company/candidate/university:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Add candidate university
+      description: >-
+        ### Create Company Candidate University
+
+
+        This endpoint allows the creation of a new university record for a
+        candidate within a company.
+
+
+        #### Request Body
+
+
+        - `user_slug` (string): The unique identifier of the user.
+            
+        - `start_date` (string, required): The start date of the university
+        record.
+            
+        - `end_date` (string, optional): The end date of the university record.
+            
+        - `university_name` (string): The name of the university.
+            
+        - `study_name` (string): The name of the study program.
+            
+        - `university_degrees_id` (integer): The ID representing the university
+        degree.
+            
+        - `description` (string, optional): A brief description of the
+        university record.
+            
+        - `grade` (integer): The grade obtained.
+            
+        - `grading_systems_id` (integer): The ID representing the grading system
+        used.
+            
+
+        #### Response
+
+
+        The response is in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+            "message": "Candidate job input successfully",
+            "status": 201
+        }
+
+         ```
+
+        - `message` (string): A message related to the request.
+            
+        - `status` (integer): The status of the request.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+            "user_slug": "39c12359-7eaf-407d-9be7-97f522...",
+            "start_date": "01-02-2024",
+            "end_date": "01-02-2024",
+            "university_name": "Kampus Merdeka",
+            "study_name": "Tourismusmanagement",
+            "university_degrees_id": 2,
+            "description": "",
+            "grade": 1,
+            "grading_systems_id": 52
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_slug: 39c12359-7eaf-407d-9be7-97f522a1e7f2
+                start_date: 01-02-2024
+                end_date: 01-02-2024
+                university_name: Kampus Merdeka
+                study_name: Tourismusmanagement
+                university_degrees_id: 2
+                description: ''
+                grade: 1
+                grading_systems_id: 52
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /gin/v1/company/candidate/it-skill:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Add candidate it skills
+      description: >-
+        ### Create Company Candidate IT Skill
+
+
+        This endpoint allows the addition of a new IT skill for a candidate
+        within a company.
+
+
+        #### Request Body
+
+
+        - `user_slug` (string): The unique identifier of the user.
+            
+        - `skill_name` (string): The name of the IT skill.
+            
+        - `skill_level_id` (integer): The level of proficiency in the IT skill
+        (1 - 4).
+            
+
+        #### Response
+
+
+        The response is in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+            "message": "string"
+            "status": "integer"
+        }
+
+         ```
+
+        - `message` (string): A message related to the request.
+            
+        - `status` (integer): The status of the request.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+            "message": "Candidate job input successfully",
+            "status": 201
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: |-
+                {
+                    "user_slug": "39c12359-7eaf-407d-9be7-97f522a1e7f2",
+                    "skill_name": "React",
+                    "skill_level_id": 4 // 1 - 4
+                }
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /v1/company/api-integrations:
     get:
       tags:
