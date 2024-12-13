@@ -968,6 +968,375 @@ paths:
                         }
                     ]
                 }
+  /v1/general/language-skills:
+    get:
+      tags:
+        - General
+      summary: Language Skills list
+      description: >-
+        ### GET /v1/general/language-skills
+
+
+        This endpoint retrieves language skills data in the specified language
+        in Pauls Job.
+
+
+        #### Request
+
+
+        - Method: GET
+            
+        - URL: /v1/general/language-skills?lang=en
+            
+
+        #### **Params**
+
+
+        - lang: (optional, default de) language for preferred language
+            
+
+        #### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        ##### Response Body
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "status": {
+              "type": "integer"
+            },
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+
+         ```
+      parameters:
+        - name: lang
+          in: query
+          schema:
+            type: string
+          example: en
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Success
+                status: 200
+                data:
+                  - id: 23
+                    value: German
+                  - id: 26
+                    value: English
+                  - id: 35
+                    value: French
+                  - id: 28
+                    value: Spanish
+                  - id: 66
+                    value: Latin
+                  - id: 1
+                    value: Afar
+                  - id: 2
+                    value: Abkhaz
+                  - id: 3
+                    value: Afrikaans
+                  - id: 4
+                    value: Amharic
+                  - id: 5
+                    value: Arabic
+                  - id: 6
+                    value: Assamese
+                  - id: 7
+                    value: Aymara
+                  - id: 8
+                    value: Azerbaijani
+                  - id: 9
+                    value: South Azerbaijani
+                  - id: 10
+                    value: Bashkir
+                  - id: 11
+                    value: Belarusian
+                  - id: 12
+                    value: Bulgarian
+                  - id: 13
+                    value: Bihari
+                  - id: 14
+                    value: Bislama
+                  - id: 15
+                    value: Bengali; Bangla
+                  - id: 16
+                    value: Tibetan Standard, Tibetan, Central
+                  - id: 17
+                    value: Breton
+                  - id: 18
+                    value: Catalan; Valencian
+                  - id: 19
+                    value: Corsican
+                  - id: 20
+                    value: Czech
+                  - id: 21
+                    value: Welsh
+                  - id: 22
+                    value: Danish
+                  - id: 24
+                    value: Dzongkha
+                  - id: 25
+                    value: Greek, Modern
+                  - id: 27
+                    value: Esperanto
+                  - id: 29
+                    value: Estonian
+                  - id: 30
+                    value: Basque
+                  - id: 31
+                    value: Persian (Farsi)
+                  - id: 32
+                    value: Finnish
+                  - id: 33
+                    value: Fijian
+                  - id: 34
+                    value: Faroese
+                  - id: 36
+                    value: Western Frisian
+                  - id: 37
+                    value: Irish
+                  - id: 38
+                    value: Scottish Gaelic; Gaelic
+                  - id: 39
+                    value: Galician
+                  - id: 40
+                    value: Guaraní
+                  - id: 41
+                    value: Gujarati
+                  - id: 42
+                    value: Hausa
+                  - id: 43
+                    value: Hebrew (modern)
+                  - id: 44
+                    value: Hindi
+                  - id: 45
+                    value: Croatian
+                  - id: 46
+                    value: Hungarian
+                  - id: 47
+                    value: Armenian
+                  - id: 48
+                    value: Interlingua
+                  - id: 49
+                    value: Indonesian
+                  - id: 50
+                    value: Interlingue
+                  - id: 51
+                    value: Inupiaq
+                  - id: 52
+                    value: Icelandic
+                  - id: 53
+                    value: Italian
+                  - id: 54
+                    value: Inuktitut
+                  - id: 55
+                    value: Japanese
+                  - id: 56
+                    value: Javanese
+                  - id: 57
+                    value: Georgian
+                  - id: 58
+                    value: Kazakh
+                  - id: 59
+                    value: Kalaallisut, Greenlandic
+                  - id: 60
+                    value: Khmer
+                  - id: 61
+                    value: Kannada
+                  - id: 62
+                    value: Korean
+                  - id: 63
+                    value: Kashmiri
+                  - id: 64
+                    value: Kurdish
+                  - id: 65
+                    value: Kyrgyz
+                  - id: 67
+                    value: Lingala
+                  - id: 68
+                    value: Lao
+                  - id: 69
+                    value: Lithuanian
+                  - id: 70
+                    value: Latvian
+                  - id: 71
+                    value: Malagasy
+                  - id: 72
+                    value: Māori
+                  - id: 73
+                    value: Macedonian
+                  - id: 74
+                    value: Malayalam
+                  - id: 75
+                    value: Mongolian
+                  - id: 76
+                    value: Marathi (Marāṭhī)
+                  - id: 77
+                    value: Malay
+                  - id: 78
+                    value: Maltese
+                  - id: 79
+                    value: Burmese
+                  - id: 80
+                    value: Nauru
+                  - id: 81
+                    value: Nepali
+                  - id: 82
+                    value: Dutch
+                  - id: 83
+                    value: Norwegian
+                  - id: 84
+                    value: Occitan
+                  - id: 85
+                    value: Oromo
+                  - id: 86
+                    value: Oriya
+                  - id: 87
+                    value: Panjabi, Punjabi
+                  - id: 88
+                    value: Polish
+                  - id: 89
+                    value: Pashto, Pushto
+                  - id: 90
+                    value: Portuguese
+                  - id: 91
+                    value: Quechua
+                  - id: 92
+                    value: Romansh
+                  - id: 93
+                    value: Kirundi
+                  - id: 94
+                    value: Romanian
+                  - id: 95
+                    value: Russian
+                  - id: 96
+                    value: Kinyarwanda
+                  - id: 97
+                    value: Sanskrit (Saṁskṛta)
+                  - id: 98
+                    value: Sindhi
+                  - id: 99
+                    value: Sango
+                  - id: 100
+                    value: Sinhala, Sinhalese
+                  - id: 101
+                    value: Slovak
+                  - id: 102
+                    value: Slovene
+                  - id: 103
+                    value: Samoan
+                  - id: 104
+                    value: Shona
+                  - id: 105
+                    value: Somali
+                  - id: 106
+                    value: Albanian
+                  - id: 107
+                    value: Serbian
+                  - id: 108
+                    value: Swati
+                  - id: 109
+                    value: Southern Sotho
+                  - id: 110
+                    value: Sundanese
+                  - id: 111
+                    value: Swedish
+                  - id: 112
+                    value: Swahili
+                  - id: 113
+                    value: Tamil
+                  - id: 114
+                    value: Telugu
+                  - id: 115
+                    value: Tajik
+                  - id: 116
+                    value: Thai
+                  - id: 117
+                    value: Tigrinya
+                  - id: 118
+                    value: Turkmen
+                  - id: 119
+                    value: Tagalog
+                  - id: 120
+                    value: Tswana
+                  - id: 121
+                    value: Tonga (Tonga Islands)
+                  - id: 122
+                    value: Turkish
+                  - id: 123
+                    value: Tsonga
+                  - id: 124
+                    value: Tatar
+                  - id: 125
+                    value: Twi
+                  - id: 126
+                    value: Uyghur, Uighur
+                  - id: 127
+                    value: Ukrainian
+                  - id: 128
+                    value: Urdu
+                  - id: 129
+                    value: Uzbek
+                  - id: 130
+                    value: Vietnamese
+                  - id: 131
+                    value: Volapük
+                  - id: 132
+                    value: Wolof
+                  - id: 133
+                    value: Xhosa
+                  - id: 134
+                    value: Yiddish
+                  - id: 135
+                    value: Yoruba
+                  - id: 136
+                    value: Zhuang, Chuang
+                  - id: 137
+                    value: Chinese
+                  - id: 138
+                    value: Zulu
+                  - id: 139
+                    value: Luxemburgisch
+                  - id: 140
+                    value: Kantonesisch
   /gin/v1/company/candidate:
     post:
       tags:
@@ -989,6 +1358,12 @@ paths:
             
         - `email` (string, optional): The email address of the candidate.
         (Required if phone is missing)
+            
+        - `source` (string, optional): The source of imported candidate. If
+        empty the result will be
+            
+        - `employee` (boolean, optional): Is this person an employee or a
+        candidate ?. If empty the result will be false
             
 
         #### Response
@@ -1025,9 +1400,13 @@ paths:
           application/json:
             schema:
               type: object
-              example:
-                phone: ''
-                email: sondh1110003@yopmail.com
+              example: |-
+                {
+                    "phone": "+60147383114",
+                    "email": "john.doe@example.com",
+                    "source": "",
+                    "employee": false
+                }
       security:
         - noauthAuth: []
       parameters:
@@ -1036,11 +1415,6 @@ paths:
           schema:
             type: string
           example: '{{company-api-key}}'
-        - name: Authorization
-          in: header
-          schema:
-            type: string
-          example: testo
       responses:
         '201':
           description: Created
@@ -1122,15 +1496,15 @@ paths:
             schema:
               type: object
               example:
-                user_slug: 39c12359-7eaf-407d-9be7-97f522a1e7f2
-                email: mamamia@yopmail.com
-                first_name: Prayogi
-                last_name: Fikri
-                city: Bekasi
-                street: 456 Cedar Ave
-                zip_code: '12345'
-                phone: '+101912919'
-                birthday: null
+                user_slug: c21757fe-b2b7-4747-8a7f-eaaa5214cd3c
+                email: choi-ji-su@yopmail.com
+                first_name: Choi
+                last_name: Ji Su
+                city: Seoul
+                street: 123 Art Street
+                zip_code: '06100'
+                phone: '+821012345678'
+                birthday: 15-03-1996
                 whatsapp_preference: false
                 sms_preference: false
                 email_preference: false
@@ -1140,144 +1514,11 @@ paths:
           schema:
             type: string
           example: '{{company-api-key}}'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /gin/v1/company/candidate/upload-candidate-data:
-    post:
-      tags:
-        - Company > Candidate
-      summary: Fill Candidate data
-      description: >-
-        This endpoint allows the user to upload candidate data to the company's
-        system. The request should be sent as an HTTP POST to the
-        {{Staging_API}}/gin/v1/company/candidate/upload-candidate-data URL.
-
-
-        ### Request Body
-
-
-        The request body should be in the raw format and include the following
-        parameters:
-
-
-        - `system`: An object containing the candidate's email and phone
-        information.
-            
-            - `email`: The candidate's email address.
-                
-            - `phone`: The candidate's phone number.
-                
-        - `user`: An object containing the candidate's personal information.
-            
-            - `email`: The candidate's email address.
-                
-            - `first_name`: The candidate's first name.
-                
-            - `last_name`: The candidate's last name.
-                
-            - `city`: The candidate's city of residence.
-                
-            - `street`: The candidate's street address.
-                
-            - `zip_code`: The candidate's zip code.
-                
-            - `phone`: The candidate's phone number.
-                
-            - `birthday`: The candidate's date of birth.
-                
-            - `whatsapp_preference`: The candidate's preference for WhatsApp communication.
-                
-            - `sms_preference`: The candidate's preference for SMS communication.
-                
-            - `email_preference`: The candidate's preference for email communication.
-                
-        - `job_experiences`: An array containing the candidate's job
-        experiences.
-            
-        - `universities`: An array containing the candidate's university
-        information.
-            
-        - `it_skills`: An array containing the candidate's IT skills.
-            
-        - `hobbies`: An array containing the candidate's hobbies.
-            
-        - `other`: An array containing any other relevant information.
-            
-        - `joining_talent_community_ids`: An array containing the candidate's
-        talent community IDs.
-            
-            - `channel`: The channel ID.
-                
-            - `tc_id`: The talent community ID.
-                
-
-        ### Response
-
-
-        The response received has the following JSON schema:
-
-
-        ``` json
-
-        {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string"
-            },
-            "status": {
-              "type": "integer"
-            }
-          }
-        }
-
-         ```
-
-        The last execution of this request returned a 404 status code with an
-        empty message and a status value of 0 in the response.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                system:
-                  email: yokata1@yopmail.com
-                  phone: ''
-                user:
-                  email: yokata2@yopmail.com
-                  first_name: Emily
-                  last_name: Smithdaughter
-                  city: Bekasi
-                  street: 456 Cedar Ave
-                  zip_code: '12345'
-                  phone: '+101912919'
-                  birthday: null
-                  whatsapp_preference: false
-                  sms_preference: false
-                  email_preference: false
-                job_experiences: []
-                universities: []
-                it_skills: []
-                hobbies: []
-                other: []
-                joining_talent_community_ids:
-                  - channel: 4411aa5d
-                    tc_id: 354
-      parameters:
-        - name: x-company-api-key
+        - name: Authorization
           in: header
           schema:
             type: string
-          example: 555be1b3-c2f5-4cc4-aab7-de051ec501e4
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-          example: application/json
+          example: '{{COMPANY_API_KEY}}'
       responses:
         '200':
           description: Successful response
@@ -1555,6 +1796,160 @@ paths:
                     "skill_name": "React",
                     "skill_level_id": 4 // 1 - 4
                 }
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /gin/v1/company/candidate/additional-information:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Add candidate additional information
+      description: >-
+        ### Create Company Candidate IT Skill
+
+
+        This endpoint allows the addition of a new IT skill for a candidate
+        within a company.
+
+
+        #### Request Body
+
+
+        - `user_slug` (string): The unique identifier of the user.
+            
+        - `skill_name` (string): The name of the IT skill.
+            
+        - `skill_level_id` (integer): The level of proficiency in the IT skill
+        (1 - 4).
+            
+
+        #### Response
+
+
+        The response is in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+            "message": "string"
+            "status": "integer"
+        }
+
+         ```
+
+        - `message` (string): A message related to the request.
+            
+        - `status` (integer): The status of the request.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+            "message": "Candidate job input successfully",
+            "status": 201
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: |-
+                {
+                    "user_slug": "39c12359-7eaf-407d-9be7-97f522a1e7f2",
+                    "title": "Hello", // required
+                    "description": "some description", // optional
+                    "start_date": "12-12-2024", // optional
+                    "end_date": "13-12-2024" // optional
+                }
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: '{{company-api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /gin/v1/company/candidate/language:
+    post:
+      tags:
+        - Company > Candidate
+      summary: Add candidate Language skills
+      description: >-
+        ### Create Company Candidate IT Skill
+
+
+        This endpoint allows the addition of a new IT skill for a candidate
+        within a company.
+
+
+        #### Request Body
+
+
+        - `user_slug` (string): The unique identifier of the user.
+            
+        - `skill_name` (string): The name of the IT skill.
+            
+        - `skill_level_id` (integer): The level of proficiency in the IT skill
+        (1 - 4).
+            
+
+        #### Response
+
+
+        The response is in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+            "message": "string"
+            "status": "integer"
+        }
+
+         ```
+
+        - `message` (string): A message related to the request.
+            
+        - `status` (integer): The status of the request.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+            "message": "Candidate job input successfully",
+            "status": 201
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_slug: 39c12359-7eaf-407d-9be7-97f522a1e7f2
+                language_id: 2
+                language_level_id: 2
       parameters:
         - name: Authorization
           in: header
